@@ -24,6 +24,8 @@ This matrix is the approval gate between the legacy dataset audit and creation o
 
 Only an `Approved` family may be used to author canonical training records. Approval applies to the reviewed family specification, not automatically to every cosmetic legacy row.
 
+Engineering may proceed in parallel using an explicitly versioned `provisional_synthetic_unreviewed` derivative. Such a derivative must preserve inherited semantic labels, record structural repairs, remain ineligible for canonical release, and may support only engineering—not legal-correctness—claims. See `PROVISIONAL_DATASET.md`.
+
 ## Candidate matrix
 
 | Candidate family | Legacy source | Proposed behavioral role | Known issue to resolve | Authority | Expected state | Status |

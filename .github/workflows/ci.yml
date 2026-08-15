@@ -1,0 +1,29 @@
+name: repository checks
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Verify immutable legacy snapshot
+        run: python -B analysis/verify_legacy_snapshot.py
+      - name: Rebuild provisional dataset
+        run: python -B scripts/build_dataset.py
+      - name: Require deterministic checked-in outputs
+        run: git diff --exit-code -- data/provisional_v0
+      - name: Validate dataset
+        run: python -B scripts/validate_dataset.py
+      - name: Run unit tests
+        env:
+          PYTHONPATH: src
+        run: python -B -m unittest discover -s tests -v

@@ -1,0 +1,35 @@
+experiment_id: pb-gemma-2b-qlora-provisional-v0
+research_status: provisional_synthetic_unreviewed
+base_model: google/gemma-2b
+base_revision: resolve_main_to_commit_sha_and_record_before_training
+method: qlora
+quantization:
+  bits: 4
+  type: nf4
+  double_quantization: true
+  compute_dtype: bfloat16_if_supported_else_float16
+lora:
+  rank: 16
+  alpha: 32
+  dropout: 0.05
+  bias: none
+  target_modules: [q_proj, k_proj, v_proj, o_proj]
+training:
+  seed: 20260815
+  epochs: 3
+  learning_rate: 0.0002
+  per_device_train_batch_size: 1
+  per_device_eval_batch_size: 1
+  gradient_accumulation_steps: 8
+  max_length: 1536
+  warmup_ratio: 0.1
+  weight_decay: 0.01
+  optimizer: paged_adamw_8bit
+  prompt_loss_masking: true
+evaluation:
+  do_sample: false
+  max_new_tokens: 512
+  split: test
+artifacts:
+  adapter_dir: artifacts/pb-gemma-2b-qlora-provisional-v0
+  predictions_dir: eval/results/pb-gemma-2b-qlora-provisional-v0

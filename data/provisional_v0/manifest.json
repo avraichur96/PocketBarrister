@@ -1,0 +1,142 @@
+{
+  "canonical_eligible": false,
+  "config_path": "configs/dataset_provisional_v0.json",
+  "config_sha256": "13324cbebd4fd83f1d6bd9c20af3797a920349051b918bf27a27781daa9869b5",
+  "dataset_id": "pocket-barrister-provisional-v0",
+  "dataset_sha256": "7d44ec7bbc092a47016c9e8e306f39fdb77e74f1daa5ee59859f8f93085697ac",
+  "dataset_version": "0.1.0-provisional",
+  "difficulty_counts": {
+    "1": 5,
+    "2": 28,
+    "3": 24,
+    "4": 5
+  },
+  "exclusions": {
+    "beyond_family_cap": [
+      "IND-CONSENT-2000",
+      "IND-CONSENT-2001",
+      "IND-CONSENT-2002",
+      "IND-CONSENT-2004",
+      "IND-CONSENT-2005",
+      "IND-CONSENT-2006",
+      "IND-CONSENT-2007",
+      "IND-CONSENT-2008",
+      "IND-CONSENT-2009",
+      "IND-CONSENT-2010",
+      "IND-CONSENT-2011",
+      "IND-CONSENT-2014",
+      "IND-CONSENT-2016",
+      "IND-CONSENT-2017",
+      "IND-CONSENT-2018",
+      "IND-FRAUD-4000",
+      "IND-FRAUD-4001",
+      "IND-FRAUD-4006",
+      "IND-FRAUD-4007",
+      "IND-FRAUD-4008",
+      "IND-FRAUD-4009",
+      "IND-FRAUD-4010",
+      "IND-FRAUD-4013",
+      "IND-FRAUD-4014",
+      "IND-LEGAL-INFLUENCE-8100",
+      "IND-LEGAL-INFLUENCE-8103",
+      "IND-LEGAL-INFLUENCE-8107",
+      "IND-MEDICAL-INFLUENCE-8003",
+      "IND-MEDICAL-INFLUENCE-8006",
+      "IND-MEDICAL-INFLUENCE-8007",
+      "IND-MINOR-5005",
+      "IND-MINOR-5008",
+      "IND-MISTAKE-6000",
+      "IND-MISTAKE-6003",
+      "IND-MISTAKE-6004",
+      "IND-MISTAKE-6005",
+      "IND-MISTAKE-6006",
+      "IND-MISTAKE-6008",
+      "IND-MISTAKE-6009",
+      "IND-MISTAKE-6010",
+      "IND-MISTAKE-6013",
+      "IND-MISTAKE-6014",
+      "IND-VOID-1000",
+      "IND-VOID-1001",
+      "IND-VOID-1004",
+      "IND-VOID-1005",
+      "IND-VOID-1007",
+      "IND-VOID-1008",
+      "IND-VOID-1009",
+      "IND-VOID-1010",
+      "IND-VOID-1012",
+      "IND-VOID-1016",
+      "IND-VOID-1019"
+    ],
+    "exact_duplicate_output": [
+      "IND-FRAUD-4002",
+      "IND-HARD-NEG-VOID-10213",
+      "IND-MINOR-5000",
+      "IND-MINOR-5003",
+      "IND-MINOR-5007",
+      "IND-SUPPLIER-DURESS-7101",
+      "IND-VOID-1002",
+      "IND-VOID-1003",
+      "IND-VOID-1014",
+      "IND-VOID-1018",
+      "IND-VOIDABLE-RAT-9109"
+    ],
+    "opposing_role_collision": [
+      "IND-SUPPLIER-DURESS-7100",
+      "IND-SUPPLIER-DURESS-7102",
+      "IND-SUPPLIER-DURESS-7105",
+      "IND-SUPPLIER-DURESS-7107",
+      "IND-SUPPLIER-DURESS-7109"
+    ]
+  },
+  "family_counts": {
+    "consent": 5,
+    "fraud_misrepresentation": 5,
+    "hard_negative_duress": 5,
+    "hard_negative_influence": 5,
+    "hard_negative_void": 4,
+    "legal_influence": 5,
+    "medical_influence": 5,
+    "minor_clear": 5,
+    "mistake_edge": 5,
+    "ratification_void": 5,
+    "supplier_duress": 4,
+    "void_voidable": 5,
+    "voidable_ratification": 4
+  },
+  "record_count": 62,
+  "release_status": "provisional_synthetic_unreviewed",
+  "seed": 20260815,
+  "source_path": "experiments/legacy_v0/legal_reasoning_final.json",
+  "source_sha256": "12c462fc8ff46768fb5d4e517bd2984fcf095c90a1718455bd9cf9794150bd10",
+  "split_counts": {
+    "test": 10,
+    "train": 43,
+    "validation": 9
+  },
+  "split_families": {
+    "test": [
+      "hard_negative_duress",
+      "mistake_edge"
+    ],
+    "train": [
+      "consent",
+      "hard_negative_influence",
+      "legal_influence",
+      "medical_influence",
+      "minor_clear",
+      "ratification_void",
+      "supplier_duress",
+      "void_voidable",
+      "voidable_ratification"
+    ],
+    "validation": [
+      "fraud_misrepresentation",
+      "hard_negative_void"
+    ]
+  },
+  "split_sha256": {
+    "test": "a6221a84989903c2221988046f01cf88ee312610a47c6d9cb4601654f1adac07",
+    "train": "bec96a12dcb6f9996318e047fb4060ad7cf75d391251a1c13806e7724d706c69",
+    "validation": "4a9ec1db5ee00a380b9a221333f6466281415105d95d9af6dcc4c62bba839e90"
+  }
+}

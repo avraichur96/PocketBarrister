@@ -21,6 +21,10 @@ checkpoints/
 wandb/
 *.log
 
+# Generated training/evaluation artifacts (export deliberately after review)
+artifacts/*/
+eval/results/*/
+
 # Large legacy artifacts remain local until Git LFS or external hosting is chosen
 experiments/legacy_v0/lora_legal_gemma/adapter_model.safetensors
 experiments/legacy_v0/lora_legal_gemma/tokenizer.json

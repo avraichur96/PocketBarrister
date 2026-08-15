@@ -9,9 +9,11 @@ This is work in progress and metrics for some interesting tests are coming soon!
 
 - Original training notebook, dataset generators, datasets, evaluation prompts, and adapter artifacts are preserved under `experiments/legacy_v0/`.
 - The existing material is an experimental legacy snapshot, not a production-ready model or validated legal dataset.
-- **Phase 1 is in progress:** all 13 proposed source families are now registered in the [legal adjudication matrix](reports/LEGAL_ADJUDICATION_MATRIX.md); legal authority verification and expected-state approval remain at 0/13.
+- **Phase 1 legal review is in progress:** all 13 proposed source families are registered in the [legal adjudication matrix](reports/LEGAL_ADJUDICATION_MATRIX.md); legal authority verification and expected-state approval remain at 0/13.
 - The completed [dataset audit](reports/DATASET_AUDIT.md) found that neither legacy candidate dataset should be used as-is.
-- Dataset validation, reproducible training, formal evaluation, and documented before/after results remain future work.
+- **Phase 2 engineering is runnable:** a deterministic provisional build produces 62 validated records and family-disjoint 43/9/10 splits. See the [build report](reports/PROVISIONAL_DATASET.md).
+- **Phase 3 core organization is underway:** data, training-format, and structural-evaluation code now live in an import-safe package with CLI wrappers and tests.
+- The first [Colab QLoRA notebook](notebooks/PocketBarrister_QLoRA_Colab.ipynb) is ready to produce the adapter, raw base/adapter predictions, metrics, and run metadata.
 - Large legacy adapter and tokenizer binaries are currently kept local and excluded from Git.
 
 ### Phase 1 progress
@@ -20,20 +22,42 @@ This is work in progress and metrics for some interesting tests are coming soon!
 |---|---:|
 | Candidate-family inventory | 13/13 |
 | Source-lineage and structural-defect triage | 13/13 |
+| Provisional records passing validation | 62/62 |
+| Family overlap across train/validation/test | 0 |
 | Legal authority verification | 0/13 |
 | Expected-state approval | 0/13 |
 | Canonical admission decisions | 0/13 |
 
-The current task is to adjudicate each candidate family before repairing records, generating variants, or creating train/evaluation splits.
+The provisional dataset lets engineering and initial adapter training proceed without implying that inherited legal labels are correct. Legal review is still required before a reviewed canonical dataset or legal-accuracy claim.
+
+## Reproduce the data pipeline
+
+The local pipeline uses only the Python standard library:
+
+```powershell
+python -B scripts/build_dataset.py
+python -B scripts/validate_dataset.py
+$env:PYTHONPATH = "src"
+python -B -m unittest discover -s tests -v
+```
+
+The build pins its source hash, records every structural repair and exclusion, and produces deterministic dataset and split hashes in `data/provisional_v0/manifest.json`.
 
 ## Repository layout
 
 ```text
+configs/          Versioned dataset and QLoRA settings
+data/             Provisional dataset, splits, and immutable build manifest
+notebooks/        Colab training and base-versus-adapter runbook
+scripts/          Build, validate, and prediction-scoring CLIs
+src/              Import-safe canonical Python package
+tests/            Data, formatting, and metric tests
+reports/          Audit, matrix, and dataset-build evidence
 experiments/
   legacy_v0/    Original experiment preserved for traceability
 ```
 
-The canonical package, configurations, evaluation pipeline, reports, and tests will be added as the project is refactored.
+Generated adapters and evaluation results remain ignored until an actual run is inspected and intentionally selected for publication.
 
 ## Using the legacy experiment
 
