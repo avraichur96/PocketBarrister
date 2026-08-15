@@ -1,4 +1,4 @@
-# Pocket Barrister [WIP]
+# Pocket Barrister 
 
 Pocket Barrister is an early-stage machine learning experiment exploring whether LoRA fine-tuning can teach Gemma 2B to produce structured legal analysis for synthetic Indian-law hypotheticals.
 
