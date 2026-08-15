@@ -9,8 +9,22 @@ This is work in progress and metrics for some interesting tests are coming soon!
 
 - Original training notebook, dataset generators, datasets, evaluation prompts, and adapter artifacts are preserved under `experiments/legacy_v0/`.
 - The existing material is an experimental legacy snapshot, not a production-ready model or validated legal dataset.
-- Dataset validation, reproducible training, formal evaluation, and documented before/after results are planned next.
+- **Phase 1 is in progress:** all 13 proposed source families are now registered in the [legal adjudication matrix](reports/LEGAL_ADJUDICATION_MATRIX.md); legal authority verification and expected-state approval remain at 0/13.
+- The completed [dataset audit](reports/DATASET_AUDIT.md) found that neither legacy candidate dataset should be used as-is.
+- Dataset validation, reproducible training, formal evaluation, and documented before/after results remain future work.
 - Large legacy adapter and tokenizer binaries are currently kept local and excluded from Git.
+
+### Phase 1 progress
+
+| Milestone | Progress |
+|---|---:|
+| Candidate-family inventory | 13/13 |
+| Source-lineage and structural-defect triage | 13/13 |
+| Legal authority verification | 0/13 |
+| Expected-state approval | 0/13 |
+| Canonical admission decisions | 0/13 |
+
+The current task is to adjudicate each candidate family before repairing records, generating variants, or creating train/evaluation splits.
 
 ## Repository layout
 
