@@ -2,7 +2,8 @@
 
 Pocket Barrister is an early-stage machine learning experiment exploring whether LoRA fine-tuning can teach Gemma 2B to produce structured legal analysis for synthetic Indian-law hypotheticals.
 
-The current repository preserves the original dataset-generation and training experiment while a cleaner, reproducible pipeline is developed incrementally.
+The current repository preserves the original dataset-generation and training experiment while a cleaner, reproducible pipeline is developed incrementally. 
+This is work in progress and metrics for some interesting tests are coming soon! :)  
 
 ## Current status
 
