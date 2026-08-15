@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# Environments and secrets
+.venv/
+venv/
+.env
+.env.*
+
+# Notebooks and experiment output
+.ipynb_checkpoints/
+outputs/
+checkpoints/
+wandb/
+*.log
+
+# Large legacy artifacts remain local until Git LFS or external hosting is chosen
+experiments/legacy_v0/lora_legal_gemma/adapter_model.safetensors
+experiments/legacy_v0/lora_legal_gemma/tokenizer.json
+experiments/legacy_v0/lora_legal_gemma/training_args.bin
+experiments/legacy_v0/lora_legal_weights/adapter_model.safetensors
+
+# Local working documents
+/REFACTOR_PLAN.md
+
+# OS files
+.DS_Store
+Thumbs.db
+Desktop.ini

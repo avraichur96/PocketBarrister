@@ -1,0 +1,102 @@
+{
+  "test_prompts": [
+    {
+      "test_id": "TEST-DURESS-001",
+      "category": "economic_duress_positive",
+      "description": "Classic economic duress - no alternative supplier",
+      "instruction": "Analyze the following legal case and provide structured legal reasoning using the specified format.\n\nYour response must follow this exact structure:\n1. <ROLE_BINDING>: Identify all parties and whose consent/capacity matters\n2. <DOCTRINE_ROUTING>: Select the primary legal doctrine, explain why it's the best framework, and reject alternative doctrines with reasoning\n3. <FACT_FINDINGS>: Extract relevant facts as state variables (Yes/No format)\n4. <LEGAL_EFFECT>: Apply causal reasoning showing how facts lead to legal consequences (use \"Because X = Yes/No, Y follows\" format)\n5. <FINAL_ANSWER>: Provide a concise conclusion\n\nEnd your response with <|end_of_text|> token.",
+      "input": "CASE_ID: TEST-DURESS-001\n\nFACTS:\nMegaCorp supplies specialized microchips to TechStart at ₹500 per unit under 2-year contract. Six months in, MegaCorp threatens to stop all deliveries unless TechStart pays ₹800 per unit (60% increase). TechStart's entire product line depends on these chips. No other supplier manufactures compatible chips. Switching to alternative chips would require 14 months product redesign at ₹12 crore cost and loss of market position. TechStart signs modified contract under protest.\n\nISSUES:\n- Is economic duress established?\n- Is the price modification enforceable?\n- What remedies are available?\n\nAPPLICABLE PRINCIPLES:\n- Economic Duress: Illegitimate pressure + no practical alternative + vitiated consent\n- Contract Modification: Requires free consent\n- Voidable vs Void: Voidable contracts can be rescinded",
+      "expected_outcome": "Economic duress established. Modification voidable."
+    },
+    {
+      "test_id": "TEST-DURESS-002",
+      "category": "economic_duress_negative",
+      "description": "No duress - multiple alternatives available",
+      "instruction": "Analyze the following legal case and provide structured legal reasoning using the specified format.\n\nYour response must follow this exact structure:\n1. <ROLE_BINDING>: Identify all parties and whose consent/capacity matters\n2. <DOCTRINE_ROUTING>: Select the primary legal doctrine, explain why it's the best framework, and reject alternative doctrines with reasoning\n3. <FACT_FINDINGS>: Extract relevant facts as state variables (Yes/No format)\n4. <LEGAL_EFFECT>: Apply causal reasoning showing how facts lead to legal consequences (use \"Because X = Yes/No, Y follows\" format)\n5. <FINAL_ANSWER>: Provide a concise conclusion\n\nEnd your response with <|end_of_text|> token.",
+      "input": "CASE_ID: TEST-DURESS-002\n\nFACTS:\nSupplierCo threatens to stop deliveries to BuyerCo unless BuyerCo pays ₹200 per unit instead of ₹150. BuyerCo has 6 other qualified suppliers offering identical products at ₹160-180 per unit. Switching requires only 1 week notice and updating purchase orders. No retooling or redesign needed. BuyerCo agrees to SupplierCo's terms to maintain existing relationship.\n\nISSUES:\n- Is economic duress established?\n- Does availability of alternatives matter?\n- Is the modification valid?\n\nAPPLICABLE PRINCIPLES:\n- Economic Duress: Requires no practical alternative\n- Practical Alternative Test: Availability and feasibility\n- Convenience vs Necessity: Choice to avoid hassle is not duress",
+      "expected_outcome": "Economic duress not established. Modification valid."
+    },
+    {
+      "test_id": "TEST-DURESS-003",
+      "category": "economic_duress_boundary",
+      "description": "Boundary case - legitimate market pressure",
+      "instruction": "Analyze the following legal case and provide structured legal reasoning using the specified format.\n\nYour response must follow this exact structure:\n1. <ROLE_BINDING>: Identify all parties and whose consent/capacity matters\n2. <DOCTRINE_ROUTING>: Select the primary legal doctrine, explain why it's the best framework, and reject alternative doctrines with reasoning\n3. <FACT_FINDINGS>: Extract relevant facts as state variables (Yes/No format)\n4. <LEGAL_EFFECT>: Apply causal reasoning showing how facts lead to legal consequences (use \"Because X = Yes/No, Y follows\" format)\n5. <FINAL_ANSWER>: Provide a concise conclusion\n\nEnd your response with <|end_of_text|> token.",
+      "input": "CASE_ID: TEST-DURESS-003\n\nFACTS:\nGlobal steel prices increase 70% due to supply chain crisis. SteelCo notifies BuildCo that contract price of ₹50,000 per ton must increase to ₹85,000 to reflect market reality, or SteelCo will invoke force majeure clause and terminate contract. BuildCo has no alternative suppliers as entire market faces same shortage. BuildCo agrees to price increase.\n\nISSUES:\n- Is economic duress established?\n- Is this legitimate commercial pressure or illegitimate threat?\n- Does market-wide shortage affect analysis?\n\nAPPLICABLE PRINCIPLES:\n- Economic Duress: Illegitimate pressure required\n- Legitimate Commercial Pressure: Market forces, contractual rights\n- Force Majeure: Unforeseen circumstances beyond control",
+      "expected_outcome": "Economic duress not established. Legitimate commercial pressure."
+    },
+    {
+      "test_id": "TEST-INFLUENCE-001",
+      "category": "undue_influence",
+      "description": "Undue influence - doctor-patient relationship",
+      "instruction": "Analyze the following legal case and provide structured legal reasoning using the specified format.\n\nYour response must follow this exact structure:\n1. <ROLE_BINDING>: Identify all parties and whose consent/capacity matters\n2. <DOCTRINE_ROUTING>: Select the primary legal doctrine, explain why it's the best framework, and reject alternative doctrines with reasoning\n3. <FACT_FINDINGS>: Extract relevant facts as state variables (Yes/No format)\n4. <LEGAL_EFFECT>: Apply causal reasoning showing how facts lead to legal consequences (use \"Because X = Yes/No, Y follows\" format)\n5. <FINAL_ANSWER>: Provide a concise conclusion\n\nEnd your response with <|end_of_text|> token.",
+      "input": "CASE_ID: TEST-INFLUENCE-001\n\nFACTS:\nDr. Malhotra treats elderly patient Ramesh (82 years, suffering from terminal cancer) for 3 years. Dr. Malhotra persuades Ramesh to transfer ₹4 crore property to doctor's name as \"gratitude for care.\" Ramesh has no independent legal or financial advice. Family discovers transfer after Ramesh's death and challenges it.\n\nISSUES:\n- Is undue influence established?\n- Does doctor-patient relationship create presumption?\n- Is transfer valid?\n\nAPPLICABLE PRINCIPLES:\n- Undue Influence: Dominant position + unfair advantage + no independent advice\n- Fiduciary Relationships: Doctor-patient creates presumption\n- Rebutting Presumption: Independent advice required",
+      "expected_outcome": "Undue influence established. Transfer voidable."
+    },
+    {
+      "test_id": "TEST-VOID-001",
+      "category": "void_contract",
+      "description": "Minor's contract - void ab initio",
+      "instruction": "Analyze the following legal case and provide structured legal reasoning using the specified format.\n\nYour response must follow this exact structure:\n1. <ROLE_BINDING>: Identify all parties and whose consent/capacity matters\n2. <DOCTRINE_ROUTING>: Select the primary legal doctrine, explain why it's the best framework, and reject alternative doctrines with reasoning\n3. <FACT_FINDINGS>: Extract relevant facts as state variables (Yes/No format)\n4. <LEGAL_EFFECT>: Apply causal reasoning showing how facts lead to legal consequences (use \"Because X = Yes/No, Y follows\" format)\n5. <FINAL_ANSWER>: Provide a concise conclusion\n\nEnd your response with <|end_of_text|> token.",
+      "input": "CASE_ID: TEST-VOID-001\n\nFACTS:\nRahul (17 years old) purchases luxury car worth ₹80 lakh using fake ID showing age 25. Seller believes Rahul is adult and delivers car. After 2 months, Rahul's parents discover purchase and inform seller of minority. Rahul refuses to return car or pay. Seller sues for payment.\n\nISSUES:\n- Is contract void or voidable?\n- Does seller's ignorance of minority matter?\n- Can seller recover payment?\n\nAPPLICABLE PRINCIPLES:\n- Section 11: Minor incompetent to contract\n- Mohori Bibee: Minor's contract void ab initio\n- Void vs Voidable: Void = no contract; Voidable = valid until avoided",
+      "expected_outcome": "Contract void ab initio. Seller cannot enforce payment."
+    },
+    {
+      "test_id": "TEST-FRAUD-001",
+      "category": "fraud",
+      "description": "Fraud - intent to deceive established",
+      "instruction": "Analyze the following legal case and provide structured legal reasoning using the specified format.\n\nYour response must follow this exact structure:\n1. <ROLE_BINDING>: Identify all parties and whose consent/capacity matters\n2. <DOCTRINE_ROUTING>: Select the primary legal doctrine, explain why it's the best framework, and reject alternative doctrines with reasoning\n3. <FACT_FINDINGS>: Extract relevant facts as state variables (Yes/No format)\n4. <LEGAL_EFFECT>: Apply causal reasoning showing how facts lead to legal consequences (use \"Because X = Yes/No, Y follows\" format)\n5. <FINAL_ANSWER>: Provide a concise conclusion\n\nEnd your response with <|end_of_text|> token.",
+      "input": "CASE_ID: TEST-FRAUD-001\n\nFACTS:\nSeller knowingly sells land with disputed title to Buyer, providing forged clear title documents. Seller actively conceals ongoing litigation over property ownership. Buyer discovers fraud after purchase when actual owner files eviction suit. Buyer seeks rescission and damages.\n\nISSUES:\n- Is fraud or innocent misrepresentation established?\n- Does intent to deceive matter?\n- What remedies are available?\n\nAPPLICABLE PRINCIPLES:\n- Fraud: False representation + knowledge of falsity + intent to deceive\n- Misrepresentation: False representation without intent\n- Remedies: Fraud allows rescission + damages; Misrepresentation allows only rescission",
+      "expected_outcome": "Fraud established. Rescission and damages available."
+    },
+    {
+      "test_id": "TEST-NEGLIGENCE-001",
+      "category": "negligence",
+      "description": "Medical negligence - breach of duty",
+      "instruction": "Analyze the following legal case and provide structured legal reasoning using the specified format.\n\nYour response must follow this exact structure:\n1. <ROLE_BINDING>: Identify all parties and whose consent/capacity matters\n2. <DOCTRINE_ROUTING>: Select the primary legal doctrine, explain why it's the best framework, and reject alternative doctrines with reasoning\n3. <FACT_FINDINGS>: Extract relevant facts as state variables (Yes/No format)\n4. <LEGAL_EFFECT>: Apply causal reasoning showing how facts lead to legal consequences (use \"Because X = Yes/No, Y follows\" format)\n5. <FINAL_ANSWER>: Provide a concise conclusion\n\nEnd your response with <|end_of_text|> token.",
+      "input": "CASE_ID: TEST-NEGLIGENCE-001\n\nFACTS:\nDr. Sharma performs appendectomy without reviewing patient's medical history showing severe allergy to anesthesia. Standard protocol mandates allergy check before surgery. Patient suffers severe allergic reaction causing permanent organ damage. Expert testimony confirms protocol breach.\n\nISSUES:\n- Is negligence established?\n- Was duty of care breached?\n- Is causation proven?\n\nAPPLICABLE PRINCIPLES:\n- Negligence: Duty + Breach + Causation + Damage\n- Professional Standard: Bolam test - reasonable professional standard\n- Causation: But-for test - would harm have occurred but for breach?",
+      "expected_outcome": "Negligence established. Doctor liable."
+    },
+    {
+      "test_id": "TEST-INTENTION-001",
+      "category": "intention_vs_knowledge",
+      "description": "Criminal intention - murder mens rea",
+      "instruction": "Analyze the following legal case and provide structured legal reasoning using the specified format.\n\nYour response must follow this exact structure:\n1. <ROLE_BINDING>: Identify all parties and whose consent/capacity matters\n2. <DOCTRINE_ROUTING>: Select the primary legal doctrine, explain why it's the best framework, and reject alternative doctrines with reasoning\n3. <FACT_FINDINGS>: Extract relevant facts as state variables (Yes/No format)\n4. <LEGAL_EFFECT>: Apply causal reasoning showing how facts lead to legal consequences (use \"Because X = Yes/No, Y follows\" format)\n5. <FINAL_ANSWER>: Provide a concise conclusion\n\nEnd your response with <|end_of_text|> token.",
+      "input": "CASE_ID: TEST-INTENTION-001\n\nFACTS:\nA plans to kill B due to business rivalry. A purchases weapon, conducts surveillance of B's residence for 3 days, waits in hiding at B's office parking lot, shoots B when B arrives. B dies from gunshot wounds. A arrested at scene.\n\nISSUES:\n- Is intention or knowledge established?\n- What is the mens rea?\n- Is this murder or culpable homicide?\n\nAPPLICABLE PRINCIPLES:\n- Intention: Purpose to cause specific result\n- Knowledge: Awareness that result will likely follow\n- Murder vs Culpable Homicide: Intention required for murder",
+      "expected_outcome": "Intention established. Murder mens rea proven."
+    },
+    {
+      "test_id": "TEST-BURDEN-001",
+      "category": "burden_of_proof",
+      "description": "Criminal burden - prosecution must prove",
+      "instruction": "Analyze the following legal case and provide structured legal reasoning using the specified format.\n\nYour response must follow this exact structure:\n1. <ROLE_BINDING>: Identify all parties and whose consent/capacity matters\n2. <DOCTRINE_ROUTING>: Select the primary legal doctrine, explain why it's the best framework, and reject alternative doctrines with reasoning\n3. <FACT_FINDINGS>: Extract relevant facts as state variables (Yes/No format)\n4. <LEGAL_EFFECT>: Apply causal reasoning showing how facts lead to legal consequences (use \"Because X = Yes/No, Y follows\" format)\n5. <FINAL_ANSWER>: Provide a concise conclusion\n\nEnd your response with <|end_of_text|> token.",
+      "input": "CASE_ID: TEST-BURDEN-001\n\nFACTS:\nA charged with theft of ₹10 lakh from company. Prosecution presents circumstantial evidence: A had access to safe, A deposited ₹8 lakh in bank account same week, A cannot explain source of funds. Defense argues prosecution failed to prove guilt beyond reasonable doubt. No direct evidence of theft.\n\nISSUES:\n- Who bears burden of proof?\n- What is the standard of proof?\n- Has burden been discharged?\n\nAPPLICABLE PRINCIPLES:\n- Criminal Law: Prosecution bears burden of proof\n- Standard: Beyond reasonable doubt\n- Presumption of Innocence: Accused need not prove innocence",
+      "expected_outcome": "Burden on prosecution. Standard: beyond reasonable doubt. Circumstantial evidence must be evaluated."
+    },
+    {
+      "test_id": "TEST-COMPLEX-001",
+      "category": "complex_multi_doctrine",
+      "description": "Complex case requiring doctrine selection",
+      "instruction": "Analyze the following legal case and provide structured legal reasoning using the specified format.\n\nYour response must follow this exact structure:\n1. <ROLE_BINDING>: Identify all parties and whose consent/capacity matters\n2. <DOCTRINE_ROUTING>: Select the primary legal doctrine, explain why it's the best framework, and reject alternative doctrines with reasoning\n3. <FACT_FINDINGS>: Extract relevant facts as state variables (Yes/No format)\n4. <LEGAL_EFFECT>: Apply causal reasoning showing how facts lead to legal consequences (use \"Because X = Yes/No, Y follows\" format)\n5. <FINAL_ANSWER>: Provide a concise conclusion\n\nEnd your response with <|end_of_text|> token.",
+      "input": "CASE_ID: TEST-COMPLEX-001\n\nFACTS:\nAdvocate Verma (lawyer) has represented client Sunita (elderly widow, 75 years) for 10 years in property disputes. During representation, Advocate Verma repeatedly advises Sunita to transfer ₹5 crore property to Advocate's name to \"protect it from relatives.\" Sunita has no independent legal advice. Advocate also threatens to withdraw from ongoing critical litigation unless Sunita agrees. Sunita transfers property. Family challenges transfer.\n\nISSUES:\n- Is this economic duress or undue influence?\n- Which doctrine applies?\n- Is transfer valid?\n\nAPPLICABLE PRINCIPLES:\n- Economic Duress: Illegitimate threat + no practical alternative\n- Undue Influence: Fiduciary relationship + dominant position + unfair advantage\n- Lawyer-Client: Fiduciary relationship with presumption of influence",
+      "expected_outcome": "Undue influence established (primary). Economic duress also present (secondary). Transfer voidable."
+    }
+  ],
+  "usage_instructions": {
+    "format": "Alpaca format with instruction, input, output",
+    "testing_approach": "Use input field as prompt, compare model output with expected_outcome",
+    "evaluation_criteria": [
+      "Correct section markers (<ROLE_BINDING>, <DOCTRINE_ROUTING>, etc.)",
+      "Accurate party identification",
+      "Correct doctrine selection with reasoning",
+      "Proper fact extraction as state variables",
+      "Causal reasoning in LEGAL_EFFECT (Because X = Y format)",
+      "Concise final answer",
+      "Proper EOS token (<|end_of_text|>)"
+    ],
+    "difficulty_levels": {
+      "basic": ["TEST-DURESS-001", "TEST-DURESS-002", "TEST-VOID-001"],
+      "intermediate": ["TEST-INFLUENCE-001", "TEST-FRAUD-001", "TEST-NEGLIGENCE-001"],
+      "advanced": ["TEST-DURESS-003", "TEST-INTENTION-001", "TEST-COMPLEX-001"]
+    }
+  }
+}
