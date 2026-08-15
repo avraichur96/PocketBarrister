@@ -59,11 +59,12 @@ class DataPipelineTests(unittest.TestCase):
     def test_structural_metrics_are_transparent(self) -> None:
         reference = {
             "sample_id": "PB-TEST",
+            "behavior_family": "hard_negative_duress",
             "expected_state": {"findings": {"FREE_CONSENT": "Yes"}},
         }
         text = (
             "REASONING:\nVisible\nFINDINGS:\n- FREE_CONSENT: Yes\n"
-            "LEGAL_EFFECT:\nVisible\nCONCLUSION:\nValid\n"
+            "LEGAL_EFFECT:\nVisible\nCONCLUSION:\nPayment valid\n"
             "WHY ALTERNATIVES FAIL:\nNone<|end_of_text|>"
         )
         score = score_prediction(

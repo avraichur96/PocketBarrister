@@ -43,6 +43,12 @@ python -B -m unittest discover -s tests -v
 
 The build pins its source hash, records every structural repair and exclusion, and produces deterministic dataset and split hashes in `data/provisional_v0/manifest.json`.
 
+## Record a Colab run
+
+One notebook execution downloads a repository-sized evidence archive and a separate adapter archive. The evidence includes raw paired predictions, per-case scores, 95% confidence intervals, CSV and Markdown metric tables, flagged failures, a manual-review worksheet, training history, environment details, configuration, source hashes, and bundle checksums.
+
+Extract evidence into `eval/runs/<run-id>/`, verify it with `python -B scripts/verify_evidence_bundle.py eval/runs/<run-id>`, and follow [the evaluation-run guide](eval/README.md). Keep adapter binaries outside Git until their publication and licensing path is decided.
+
 ## Repository layout
 
 ```text
