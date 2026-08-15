@@ -39,6 +39,8 @@ The entity audit detects known generated names/companies appearing only in the o
 
 ### Immutable source measurements
 
+The hashes below describe the original local Windows bytes. Cross-platform builds use an LF-normalized content hash declared in `configs/dataset_provisional_v0.json`, because Git checkouts may legitimately use different text line endings without changing JSON content.
+
 | Dataset | Records | SHA-256 |
 |---|---:|---|
 | `legal_reasoning_improved.json` | 100 | `d8bb3cce5dd784f50ba7ff4f96ac1eaa71e7b1125f84e2f6ff76c664f5758234` |

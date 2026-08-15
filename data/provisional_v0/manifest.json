@@ -1,9 +1,9 @@
 {
   "canonical_eligible": false,
   "config_path": "configs/dataset_provisional_v0.json",
-  "config_sha256": "13324cbebd4fd83f1d6bd9c20af3797a920349051b918bf27a27781daa9869b5",
+  "config_sha256": "2ddcfc060fefe2d0b533f062a5bb3723d8a08c165ec8ed63c8b4b079f6dd214c",
   "dataset_id": "pocket-barrister-provisional-v0",
-  "dataset_sha256": "7d44ec7bbc092a47016c9e8e306f39fdb77e74f1daa5ee59859f8f93085697ac",
+  "dataset_sha256": "09b1a4bd4dc216ae9e4de75d9a7c374c9f02a15406a23cfeca2acebdec1db59a",
   "dataset_version": "0.1.0-provisional",
   "difficulty_counts": {
     "1": 5,
@@ -106,8 +106,9 @@
   "record_count": 62,
   "release_status": "provisional_synthetic_unreviewed",
   "seed": 20260815,
+  "source_hash_mode": "text-lf",
   "source_path": "experiments/legacy_v0/legal_reasoning_final.json",
-  "source_sha256": "12c462fc8ff46768fb5d4e517bd2984fcf095c90a1718455bd9cf9794150bd10",
+  "source_sha256": "1ee86c853f8bea6248fe08848951fbaf17455a1f99a6e289219625f49073ae7d",
   "split_counts": {
     "test": 10,
     "train": 43,
@@ -135,8 +136,8 @@
     ]
   },
   "split_sha256": {
-    "test": "a6221a84989903c2221988046f01cf88ee312610a47c6d9cb4601654f1adac07",
-    "train": "bec96a12dcb6f9996318e047fb4060ad7cf75d391251a1c13806e7724d706c69",
-    "validation": "4a9ec1db5ee00a380b9a221333f6466281415105d95d9af6dcc4c62bba839e90"
+    "test": "4a7892ec35d7f31e6448208722571c0ee5073fa18431b081606cc7d988bbd512",
+    "train": "f89b0f1623f3691d53353a53c64deda45491e9e986d9a859b59786602d170a7b",
+    "validation": "4cc1a0affabd9d5b2d8cf2219d2bbaa1c9728529fbdce9d8d1678a6a65f16d84"
   }
 }

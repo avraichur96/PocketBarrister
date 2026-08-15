@@ -5,13 +5,24 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from pocket_barrister.data.build import REPO_ROOT, build_dataset
+from pocket_barrister.data.build import REPO_ROOT, build_dataset, sha256_file
 from pocket_barrister.data.schema import validate_dataset
 from pocket_barrister.evaluation.metrics import aggregate_scores, score_prediction
 from pocket_barrister.training.formatting import format_prompt, format_target
 
 
 class DataPipelineTests(unittest.TestCase):
+    def test_text_hash_is_cross_platform(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            lf = Path(directory) / "lf.txt"
+            crlf = Path(directory) / "crlf.txt"
+            lf.write_bytes(b"first\nsecond\n")
+            crlf.write_bytes(b"first\r\nsecond\r\n")
+            self.assertNotEqual(sha256_file(lf), sha256_file(crlf))
+            self.assertEqual(
+                sha256_file(lf, "text-lf"), sha256_file(crlf, "text-lf")
+            )
+
     def test_build_is_deterministic_and_valid(self) -> None:
         config = REPO_ROOT / "configs" / "dataset_provisional_v0.json"
         with tempfile.TemporaryDirectory() as first, tempfile.TemporaryDirectory() as second:

@@ -18,5 +18,5 @@ Before and after work that reads or derives from the snapshot, verify it with:
 python -B analysis/verify_legacy_snapshot.py
 ```
 
-The authoritative baseline is `manifests/legacy_v0.sha256`. Do not update that manifest merely to make an unexpected verification failure pass. A baseline change requires explicit user authorization.
+The portable authoritative baseline is `manifests/legacy_v0.sha256`; it covers the 40 Git-tracked files and normalizes text line endings for cross-platform verification. `manifests/legacy_v0.local-artifacts.sha256` separately records the four large gitignored artifacts. Default verification accepts their absence in Git/Colab checkouts but verifies them when present. Use `python -B analysis/verify_legacy_snapshot.py --require-local-artifacts` for a complete local check. Do not update either manifest merely to make an unexpected verification failure pass. A baseline-content change requires explicit user authorization.
 

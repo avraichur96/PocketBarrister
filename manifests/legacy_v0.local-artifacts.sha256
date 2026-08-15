@@ -1,0 +1,6 @@
+# Optional local-only legacy artifacts intentionally excluded from Git.
+# Hash format: SHA256  mode  repository-relative path
+e5936e45b1b9e17454c524e98d95510427b3761e220440ead08535712011045e  binary  experiments/legacy_v0/lora_legal_gemma/adapter_model.safetensors
+cd5949d270b39a8440f0e556b3725728f8a52c21a02d42b9e7d36ed35477ec94  binary  experiments/legacy_v0/lora_legal_gemma/tokenizer.json
+949968f50887283ac85d93fca4df44e24dd22a6d162ad4894862902c932568f0  binary  experiments/legacy_v0/lora_legal_gemma/training_args.bin
+e5936e45b1b9e17454c524e98d95510427b3761e220440ead08535712011045e  binary  experiments/legacy_v0/lora_legal_weights/adapter_model.safetensors

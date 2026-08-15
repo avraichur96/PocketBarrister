@@ -36,12 +36,13 @@ ENTITY_PATTERNS: dict[str, re.Pattern[str]] = {
 }
 
 
-def sha256_file(path: Path) -> str:
-    digest = hashlib.sha256()
-    with path.open("rb") as handle:
-        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
-            digest.update(chunk)
-    return digest.hexdigest()
+def sha256_file(path: Path, mode: str = "binary") -> str:
+    data = path.read_bytes()
+    if mode == "text-lf":
+        data = data.replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+    elif mode != "binary":
+        raise ValueError(f"unsupported hash mode: {mode}")
+    return hashlib.sha256(data).hexdigest()
 
 
 def _load_json(path: Path) -> Any:
@@ -154,7 +155,8 @@ def build_dataset(config_path: Path, output_dir: Path | None = None) -> dict[str
     config = _load_json(config_path)
     source_path_text = config["source_path"]
     source_path = (REPO_ROOT / source_path_text).resolve()
-    if sha256_file(source_path) != config["source_sha256"]:
+    source_hash_mode = config.get("source_hash_mode", "binary")
+    if sha256_file(source_path, source_hash_mode) != config["source_sha256"]:
         raise ValueError("legacy source hash does not match the pinned configuration")
 
     destination = (output_dir or (REPO_ROOT / config["output_dir"])).resolve()
@@ -228,6 +230,7 @@ def build_dataset(config_path: Path, output_dir: Path | None = None) -> dict[str
         "config_sha256": sha256_file(config_path),
         "source_path": source_path_text,
         "source_sha256": config["source_sha256"],
+        "source_hash_mode": source_hash_mode,
         "dataset_sha256": sha256_file(dataset_path),
         "record_count": len(selected),
         "family_counts": dict(sorted(family_counts.items())),
